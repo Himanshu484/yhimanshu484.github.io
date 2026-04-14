@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Himanshu Yadav — Mathematics & TDA</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a18;
+    --ink-muted: #5c5c54;
+    --ink-faint: #9a9a90;
+    --paper: #f7f5f0;
+    --paper-warm: #ede9e0;
+    --accent: #2d4a3e;
+    --accent-light: #e8f0ec;
+    --rule: rgba(26,26,24,0.12);
+    --serif: 'EB Garamond', Georgia, serif;
+    --mono: 'DM Mono', 'Courier New', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--serif);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 56px;
+  }
+  .nav-name {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-muted);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── LAYOUT ── */
+  main { padding-top: 56px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 48px; }
+
+  section { padding: 72px 0; border-bottom: 1px solid var(--rule); }
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  h1 { font-size: 2.8rem; font-weight: 400; line-height: 1.2; }
+  h2 { font-size: 1.3rem; font-weight: 500; line-height: 1.4; margin-bottom: 10px; }
+  p { color: var(--ink-muted); margin-bottom: 1em; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── HERO ── */
+  #home { padding: 96px 0 72px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 64px;
+    align-items: start;
+  }
+  .hero-title { font-size: 3.6rem; font-weight: 400; line-height: 1.1; margin-bottom: 20px; }
+  .hero-title em { font-style: italic; color: var(--accent); }
+  .hero-role {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    margin-bottom: 24px;
+  }
+  .hero-bio { font-size: 1.05rem; color: var(--ink-muted); line-height: 1.8; }
+
+  .hero-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 28px;
+  }
+  .hero-card-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+  .hero-card-line {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    line-height: 1.8;
+  }
+  .hero-card-divider { height: 1px; background: var(--rule); margin: 20px 0; }
+  .hero-card a {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    margin-bottom: 6px;
+    transition: opacity 0.2s;
+  }
+  .hero-card a:hover { opacity: 0.7; }
+
+  .interests {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px;
+  }
+  .interest-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 5px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--ink-muted);
+    background: transparent;
+  }
+
+  /* ── RESEARCH ── */
+  .research-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 0 24px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .research-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .research-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+    padding-top: 4px;
+  }
+  .research-title { font-size: 1.15rem; font-weight: 500; color: var(--ink); margin-bottom: 10px; line-height: 1.4; }
+  .research-abstract { font-size: 0.92rem; color: var(--ink-muted); line-height: 1.7; margin-bottom: 12px; }
+  .research-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+    transition: opacity 0.2s;
+  }
+  .research-link:hover { opacity: 0.7; }
+  .research-status {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 2px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+
+  /* ── TEACHING ── */
+  .teach-group { margin-bottom: 36px; }
+  .teach-group-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .teach-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.95rem;
+  }
+  .teach-row:first-of-type { border-top: 1px solid var(--rule); }
+  .teach-course { color: var(--ink); }
+  .teach-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-align: right;
+  }
+
+  /* ── CV ── */
+  .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .cv-block h3 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+  }
+  .cv-entry { margin-bottom: 20px; }
+  .cv-entry-title { font-size: 0.95rem; font-weight: 500; color: var(--ink); }
+  .cv-entry-sub { font-size: 0.88rem; color: var(--ink-muted); }
+  .cv-entry-date { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); margin-top: 2px; }
+  .cv-download {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 32px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .cv-download:hover { background: var(--ink); color: var(--paper); }
+
+  /* ── CONTACT ── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .contact-intro { font-size: 1.1rem; color: var(--ink-muted); line-height: 1.8; margin-bottom: 32px; }
+  .contact-detail {
+    display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start;
+  }
+  .contact-key {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    min-width: 64px;
+    padding-top: 2px;
+  }
+  .contact-val { font-size: 0.95rem; color: var(--ink); }
+  .contact-val a { color: var(--accent); text-decoration: none; }
+  .contact-val a:hover { text-decoration: underline; }
+
+  .contact-box {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 32px;
+  }
+  .contact-box h3 { font-size: 1rem; font-weight: 500; margin-bottom: 8px; color: var(--ink); }
+  .contact-box p { font-size: 0.9rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 40px 48px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.6s ease both; }
+  .fade-up:nth-child(2) { animation-delay: 0.1s; }
+  .fade-up:nth-child(3) { animation-delay: 0.2s; }
+  .fade-up:nth-child(4) { animation-delay: 0.3s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    nav { padding: 0 20px; }
+    .container { padding: 0 20px; }
+    .hero-grid, .cv-grid, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero-title { font-size: 2.4rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="#home">H. Yadav</a>
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#research">Research</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#cv">CV</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-role fade-up">PhD Candidate · Mathematics · University of Florida</div>
+          <h1 class="hero-title fade-up">Himanshu<br><em>Yadav</em></h1>
+          <p class="hero-bio fade-up">
+            I develop mathematical tools at the intersection of algebraic topology and data science. My work uses <em>topological data analysis</em> to reveal hidden structure in complex systems — from North Atlantic weather dynamics to the evolution of scientific knowledge.
+          </p>
+          <p class="hero-bio fade-up" style="margin-top: 16px;">
+            I am advised by <a href="https://people.clas.ufl.edu/peterbubenik/" style="color: var(--accent);">Peter Bubenik</a> and expect to complete my PhD in May 2026.
+          </p>
+          <div class="interests fade-up">
+            <span class="interest-tag">Topological Data Analysis</span>
+            <span class="interest-tag">Persistent Homology</span>
+            <span class="interest-tag">Machine Learning</span>
+            <span class="interest-tag">Atmospheric Science</span>
+            <span class="interest-tag">Science of Science</span>
+          </div>
+        </div>
+        <div class="hero-card fade-up">
+          <div class="hero-card-name">Himanshu Yadav</div>
+          <div class="hero-card-line">Graduate Teaching Assistant</div>
+          <div class="hero-card-line">Dept. of Mathematics, UF</div>
+          <div class="hero-card-line">Gainesville, FL 32601</div>
+          <div class="hero-card-divider"></div>
+          <a href="mailto:yadav.himanshu@ufl.edu">yadav.himanshu@ufl.edu</a>
+          <a href="https://scholar.google.com/citations?user=YkJessIAAAAJ&hl=en" target="_blank">Google Scholar ↗</a>
+          <a href="https://tda.math.ufl.edu/fall-2025-tda-seminar/" target="_blank">TDA Seminar ↗</a>
+          <a href="#cv">Curriculum Vitae →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="container">
+      <div class="section-label">Research</div>
+
+      <div class="research-item">
+        <div class="research-num">01</div>
+        <div>
+          <div class="research-title">
+            Stabilizing localizations of representative cycles: Persistence Heatmap
+            <span class="research-status">Preprint</span>
+          </div>
+          <p class="research-abstract">
+            We introduce the persistence heatmap, a parametrized summary built on representative cycles in persistence diagrams. Algorithms computing persistence diagrams produce representative cycles that are unstable to input perturbations; by averaging we produce chains with real-valued coefficients. We prove Lipschitz stability and uniform continuity, and use machine learning to learn a task-specific parametrization.
+          </p>
+          <a class="research-link" href="https://arxiv.org/abs/2510.12756" target="_blank">arXiv:2510.12756 ↗</a>
+        </div>
+      </div>
+
+      <div class="research-item">
+        <div class="research-num">02</div>
+        <div>
+          <div class="research-title">
+            Topological Structure of the Cyclonic-Anticyclonic Interactions
+            <span class="research-status">Submitted</span>
+          </div>
+          <p class="research-abstract">
+            We apply persistent homology to study the interaction between cyclones (low-pressure) and anticyclones (high-pressure) in the North Atlantic from 1950–2022. Our topological summaries reveal distinct seasonal activity patterns and correlate with major climate indices, offering a new lens on the atmospheric dynamics that drive regional weather.
+          </p>
+          <a class="research-link" href="https://arxiv.org/abs/2511.19938" target="_blank">arXiv:2511.19938 ↗</a>
+        </div>
+      </div>
+
+      <div class="research-item">
+        <div class="research-num">03</div>
+        <div>
+          <div class="research-title">
+            Mixup for Embedding Space: Measuring Scientific Innovation via TDA
+            <span class="research-status">Submitted</span>
+          </div>
+          <p class="research-abstract">
+            We use persistent homology and mixup barcodes to analyze the negative space among document embeddings, finding that publications occupying topological holes tend to be groundbreaking interdisciplinary work. This provides a citation-free measure of scientific novelty, consistent across different train/class distributions.
+          </p>
+          <a class="research-link" href="https://arxiv.org/abs/2510.14327" target="_blank">arXiv:2510.14327 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section id="teaching">
+    <div class="container">
+      <div class="section-label">Teaching</div>
+
+      <div class="teach-group">
+        <div class="teach-group-label">Instructor of Record</div>
+        <div class="teach-row">
+          <span class="teach-course">Survey of Calculus 2 <span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">MAC2234</span></span>
+          <span class="teach-meta">Fall 2024</span>
+        </div>
+        <div class="teach-row">
+          <span class="teach-course">Elementary Differential Equations <span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">MAP2302</span></span>
+          <span class="teach-meta">Summer 2022</span>
+        </div>
+      </div>
+
+      <div class="teach-group">
+        <div class="teach-group-label">Graduate Teaching Assistant</div>
+        <div class="teach-row">
+          <span class="teach-course">Elementary Differential Equations <span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">MAP2302</span></span>
+          <span class="teach-meta">Summer 2025</span>
+        </div>
+        <div class="teach-row">
+          <span class="teach-course">Mathematical Thinking <span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">MGF1130</span></span>
+          <span class="teach-meta">Spring 2025</span>
+        </div>
+        <div class="teach-row">
+          <span class="teach-course">Precalculus Algebra and Trigonometry <span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">MAC1147</span></span>
+          <span class="teach-meta">Summer 2024</span>
+        </div>
+        <div class="teach-row">
+          <span class="teach-course">Analytic Geometry and Calculus II <span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">MAC2312</span></span>
+          <span class="teach-meta">Spring 2023</span>
+        </div>
+        <div class="teach-row">
+          <span class="teach-course">Analytic Geometry and Calculus I <span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">MAC2311</span></span>
+          <span class="teach-meta">Fall 2022 · Spring 2022</span>
+        </div>
+        <div class="teach-row">
+          <span class="teach-course">Mathematics for Liberal Arts I <span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">MGF1106</span></span>
+          <span class="teach-meta">Fall 2021</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section id="cv">
+    <div class="container">
+      <div class="section-label">Curriculum Vitae</div>
+      <div class="cv-grid">
+        <div>
+          <div class="cv-block">
+            <h3>Education</h3>
+            <div class="cv-entry">
+              <div class="cv-entry-title">Ph.D. in Mathematics</div>
+              <div class="cv-entry-sub">University of Florida</div>
+              <div class="cv-entry-date">2021 – May 2026 (expected)</div>
+            </div>
+            <div class="cv-entry">
+              <div class="cv-entry-title">M.S. in Mathematics</div>
+              <div class="cv-entry-sub">Indian Institute of Technology Delhi</div>
+              <div class="cv-entry-date">2018 – 2020</div>
+            </div>
+            <div class="cv-entry">
+              <div class="cv-entry-title">B.S. in Mathematics</div>
+              <div class="cv-entry-sub">Hindu College, University of Delhi</div>
+              <div class="cv-entry-date">2015 – 2018</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="cv-block">
+            <h3>Research Interests</h3>
+            <div class="cv-entry">
+              <div class="cv-entry-title">Topological Data Analysis</div>
+              <div class="cv-entry-sub">Persistent homology, persistence diagrams, stability theory</div>
+            </div>
+            <div class="cv-entry">
+              <div class="cv-entry-title">Applied Mathematics</div>
+              <div class="cv-entry-sub">Atmospheric science, science of science, document embeddings</div>
+            </div>
+            <div class="cv-entry">
+              <div class="cv-entry-title">Machine Learning</div>
+              <div class="cv-entry-sub">Task-specific parametrization, topological feature extraction</div>
+            </div>
+          </div>
+          <a class="cv-download" href="https://people.clas.ufl.edu/yadav-himanshu/curriculum-vitae/" target="_blank">
+            View Full CV ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label">Contact</div>
+      <div class="contact-grid">
+        <div>
+          <p class="contact-intro">
+            I am on the job market and welcome inquiries about postdoctoral, faculty, or research positions.
+          </p>
+          <div class="contact-detail">
+            <span class="contact-key">Email</span>
+            <span class="contact-val"><a href="mailto:yadav.himanshu@ufl.edu">yadav.himanshu@ufl.edu</a></span>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-key">Office</span>
+            <span class="contact-val">475 Little Hall (LIT)</span>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-key">Address</span>
+            <span class="contact-val">Department of Mathematics<br>University of Florida<br>Gainesville, FL 32601</span>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-key">Scholar</span>
+            <span class="contact-val"><a href="https://scholar.google.com/citations?user=YkJessIAAAAJ&hl=en" target="_blank">Google Scholar ↗</a></span>
+          </div>
+        </div>
+        <div class="contact-box">
+          <h3>TDA Seminar</h3>
+          <p>I organize the <a href="https://tda.math.ufl.edu/fall-2025-tda-seminar/" style="color:var(--accent);" target="_blank">Topological Data Analysis Seminar</a> at UF. The seminar brings together researchers working at the intersection of topology, geometry, and data science.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 Himanshu Yadav &nbsp;·&nbsp; Department of Mathematics, University of Florida
+</footer>
+
+</body>
+</html>
