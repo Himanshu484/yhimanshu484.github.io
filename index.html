@@ -299,6 +299,55 @@
     .hero-title { font-size: 2.4rem; }
     .nav-links { display: none; }
   }
+
+  /* ── PROFILE PHOTO ── */
+  .profile-photo {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  /* ── RESEARCH IMAGE ── */
+  .research-img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+    margin-top: 14px;
+    display: block;
+  }
+
+  /* ── CONFERENCES ── */
+  .conf-group { margin-bottom: 36px; }
+  .conf-group-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .conf-row {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.92rem;
+  }
+  .conf-row:first-of-type { border-top: 1px solid var(--rule); }
+  .conf-title { color: var(--ink); font-weight: 500; }
+  .conf-meta { color: var(--ink-muted); font-size: 0.88rem; margin-top: 2px; }
+  .conf-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-left: 8px;
+    vertical-align: middle;
+    background: var(--accent-light);
+    color: var(--accent);
+  }
 </style>
 </head>
 <body>
@@ -309,6 +358,7 @@
     <a href="#home">Home</a>
     <a href="#research">Research</a>
     <a href="#teaching">Teaching</a>
+    <a href="#conferences">Conferences</a>
     <a href="#cv">CV</a>
     <a href="#contact">Contact</a>
   </div>
@@ -321,13 +371,13 @@
     <div class="container">
       <div class="hero-grid">
         <div>
-          <div class="hero-role fade-up">PhD Candidate · Mathematics · University of Florida</div>
+          <div class="hero-role fade-up">Postdoctoral Research Associate · Carlson School of Management · University of Minnesota</div>
           <h1 class="hero-title fade-up">Himanshu<br><em>Yadav</em></h1>
           <p class="hero-bio fade-up">
             I develop mathematical tools at the intersection of algebraic topology and data science. My work uses <em>topological data analysis</em> to reveal hidden structure in complex systems — from North Atlantic weather dynamics to the evolution of scientific knowledge.
           </p>
           <p class="hero-bio fade-up" style="margin-top: 16px;">
-            I am advised by <a href="https://people.clas.ufl.edu/peterbubenik/" style="color: var(--accent);">Peter Bubenik</a> and expect to complete my PhD in May 2026.
+            I completed my PhD in Mathematics at the University of Florida in May 2026, advised by <a href="https://people.clas.ufl.edu/peterbubenik/" style="color: var(--accent);">Peter Bubenik</a>. I am now a Postdoctoral Research Associate at the Carlson School of Management, University of Minnesota, working with <a href="https://carlsonschool.umn.edu/faculty/russell-funk" style="color: var(--accent);">Professor Russell Funk</a> on the mathematical and topological foundations of knowledge analysis in the science of science.
           </p>
           <div class="interests fade-up">
             <span class="interest-tag">Topological Data Analysis</span>
@@ -339,13 +389,14 @@
         </div>
         <div class="hero-card fade-up">
           <div class="hero-card-name">Himanshu Yadav</div>
-          <div class="hero-card-line">Graduate Teaching Assistant</div>
-          <div class="hero-card-line">Dept. of Mathematics, UF</div>
-          <div class="hero-card-line">Gainesville, FL 32601</div>
+          <img src="photo.jpeg" alt="Himanshu Yadav" class="profile-photo" />
+          <div class="hero-card-line">Postdoctoral Research Associate</div>
+          <div class="hero-card-line">Carlson School of Management, UMN</div>
+          <div class="hero-card-line">Minneapolis, MN</div>
           <div class="hero-card-divider"></div>
-          <a href="/cdn-cgi/l/email-protection#1e677f7a7f68307677737f706d766b5e6b7872307b7a6b"><span class="__cf_email__" data-cfemail="6c150d080d1a420405010d021f04192c190a0042090819">[email&#160;protected]</span></a>
+          <span style="color: var(--accent); font-family: var(--mono); font-size: 11px; display: block; margin-bottom: 6px;">yhimanshu484 [at] gmail.com</span>
           <a href="https://scholar.google.com/citations?user=YkJessIAAAAJ&hl=en" target="_blank">Google Scholar ↗</a>
-          <a href="https://tda.math.ufl.edu/fall-2025-tda-seminar/" target="_blank">TDA Seminar ↗</a>
+          <a href="https://tda.math.ufl.edu/fall-2025-tda-seminar/" target="_blank">TDA Seminar (Organizer, Fall 2025) ↗</a>
           <a href="#cv">Curriculum Vitae →</a>
         </div>
       </div>
@@ -368,6 +419,7 @@
             We introduce the persistence heatmap, a parametrized summary built on representative cycles in persistence diagrams. Algorithms computing persistence diagrams produce representative cycles that are unstable to input perturbations; by averaging we produce chains with real-valued coefficients. We prove Lipschitz stability and uniform continuity, and use machine learning to learn a task-specific parametrization.
           </p>
           <a class="research-link" href="https://arxiv.org/abs/2510.12756" target="_blank">arXiv:2510.12756 ↗</a>
+          <br><img src="RP_double.png" alt="Persistence Heatmap figure" class="research-img" />
         </div>
       </div>
 
@@ -382,6 +434,7 @@
             We apply persistent homology to study the interaction between cyclones (low-pressure) and anticyclones (high-pressure) in the North Atlantic from 1950–2022. Our topological summaries reveal distinct seasonal activity patterns and correlate with major climate indices, offering a new lens on the atmospheric dynamics that drive regional weather.
           </p>
           <a class="research-link" href="https://arxiv.org/abs/2511.19938" target="_blank">arXiv:2511.19938 ↗</a>
+          <br><img src="global_projection_centered_at_zero.png" alt="Cyclonic-Anticyclonic interactions figure" class="research-img" />
         </div>
       </div>
 
@@ -396,6 +449,7 @@
             We use persistent homology and mixup barcodes to analyze the negative space among document embeddings, finding that publications occupying topological holes tend to be groundbreaking interdisciplinary work. This provides a citation-free measure of scientific novelty, consistent across different train/class distributions.
           </p>
           <a class="research-link" href="https://arxiv.org/abs/2510.14327" target="_blank">arXiv:2510.14327 ↗</a>
+          <br><img src="topic_embeddings_docs_cycle_145.png" alt="Mixup for Embedding Space figure" class="research-img" />
         </div>
       </div>
 
@@ -450,6 +504,94 @@
     </div>
   </section>
 
+  <!-- CONFERENCES -->
+  <section id="conferences">
+    <div class="container">
+      <div class="section-label">Conferences</div>
+
+      <div class="conf-group">
+        <div class="conf-group-label">Talk</div>
+        <div class="conf-row">
+          <div class="conf-title">JMM 2026</div>
+          <div class="conf-meta">Washington, DC, USA · January 4–7, 2026</div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">AMS Spring Southeastern Sectional Meeting 2025</div>
+          <div class="conf-meta">Clemson University, Clemson, SC, USA · March 8–9, 2025</div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">AMS Fall Southeastern Sectional Meeting 2024</div>
+          <div class="conf-meta">Georgia Southern University, Savannah, GA, USA · October 5–6, 2024 <span style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);">(cancelled)</span></div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">SUNBELT 2023</div>
+          <div class="conf-meta">International Network for Social Network Analysis, Portland, OR, USA · June 27–July 1, 2023 <span class="conf-badge">Travel Award</span></div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">South Central Topology Conference II</div>
+          <div class="conf-meta">Texas State University, San Marcos, TX, USA · February 11–12, 2023 <span class="conf-badge">Travel Award</span></div>
+        </div>
+      </div>
+
+      <div class="conf-group">
+        <div class="conf-group-label">Poster Presentation</div>
+        <div class="conf-row">
+          <div class="conf-title">Algebraic Topology: Methods, Computation, & Science (ATMCS)</div>
+          <div class="conf-meta">Montana State University, Bozeman, MT, USA · July 21–25, 2025 <span class="conf-badge">Accepted</span></div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">Conference on Applications of Dynamical Systems</div>
+          <div class="conf-meta">SIAM, Denver, CO, USA · May 11–15, 2025 <span class="conf-badge">Accepted</span></div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">Southeast Center for Mathematics and Biology</div>
+          <div class="conf-meta">Georgia Tech, Atlanta, GA, USA · April 10–11, 2025</div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">Computing Sciences Summer Session 2024</div>
+          <div class="conf-meta">Lawrence Berkeley National Laboratory, Berkeley, CA, USA · August 6–7, 2024 <span class="conf-badge">Travel Award</span></div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">Topological Data Analysis Week 2024</div>
+          <div class="conf-meta">Kyoto University, Kyoto, Japan · July 31–August 4, 2024 <span class="conf-badge">Travel Award</span></div>
+        </div>
+      </div>
+
+      <div class="conf-group">
+        <div class="conf-group-label">Attended</div>
+        <div class="conf-row">
+          <div class="conf-title">Topological Data Analysis Conference (UFTDA2024)</div>
+          <div class="conf-meta">University of Florida, Gainesville, FL, USA · February 8–9, 2024</div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">Randomness in Topology and its Applications</div>
+          <div class="conf-meta">Institute for Mathematical and Statistical Innovation, Chicago, IL, USA · March 20–24, 2023 <span class="conf-badge">Travel Award</span></div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">Topological Data Analysis Conference (UFTDA2023)</div>
+          <div class="conf-meta">University of Florida, Gainesville, FL, USA · February 23–24, 2023</div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">Measure-theoretic Approaches & Optimal Transportation in Statistics</div>
+          <div class="conf-meta">Institute Henri Poincaré, Paris, France · November 21–25, 2022</div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">CBMS Conference on Topological Data Analysis and Persistence Theory</div>
+          <div class="conf-meta">Valdosta State University, Valdosta, GA, USA · August 8–12, 2022</div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">FSU-UF Joint Topology and Geometry Meeting</div>
+          <div class="conf-meta">University of Florida, Gainesville, FL, USA · February 11–12, 2022</div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-title">University of Florida TDA Conference (UFTDA2022)</div>
+          <div class="conf-meta">University of Florida, Gainesville, FL, USA · January 20–21, 2022</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- CV -->
   <section id="cv">
     <div class="container">
@@ -461,7 +603,7 @@
             <div class="cv-entry">
               <div class="cv-entry-title">Ph.D. in Mathematics</div>
               <div class="cv-entry-sub">University of Florida</div>
-              <div class="cv-entry-date">2021 – May 2026 (expected)</div>
+              <div class="cv-entry-date">2021 – 2026</div>
             </div>
             <div class="cv-entry">
               <div class="cv-entry-title">M.S. in Mathematics</div>
@@ -506,19 +648,15 @@
       <div class="contact-grid">
         <div>
           <p class="contact-intro">
-            I am on the job market and welcome inquiries about postdoctoral, faculty, or research positions.
+            I am a Postdoctoral Research Associate at the Carlson School of Management, University of Minnesota. I welcome inquiries about research collaborations and future faculty or research positions.
           </p>
           <div class="contact-detail">
             <span class="contact-key">Email</span>
-            <span class="contact-val"><a href="/cdn-cgi/l/email-protection#0a736b6e6b7c246263676b6479627f4a7f6c66246f6e7f"><span class="__cf_email__" data-cfemail="97eef6f3f6e1b9fffefaf6f9e4ffe2d7e2f1fbb9f2f3e2">[email&#160;protected]</span></a></span>
+            <span class="contact-val">yhimanshu484 [at] gmail.com</span>
           </div>
           <div class="contact-detail">
-            <span class="contact-key">Office</span>
-            <span class="contact-val">475 Little Hall (LIT)</span>
-          </div>
-          <div class="contact-detail">
-            <span class="contact-key">Address</span>
-            <span class="contact-val">Department of Mathematics<br>University of Florida<br>Gainesville, FL 32601</span>
+            <span class="contact-key">Position</span>
+            <span class="contact-val">Postdoctoral Research Associate<br>Carlson School of Management<br>University of Minnesota</span>
           </div>
           <div class="contact-detail">
             <span class="contact-key">Scholar</span>
@@ -526,5 +664,12 @@
           </div>
         </div>
         <div class="contact-box">
-          <h3>TDA Seminar</h3>
-          <p>I organize the <a href="https://tda.math.ufl.edu/fall-2025-tda-seminar/" style="color:var(--accent);" target="_blank">Topological Data Analysis Seminar</a> at UF. The seminar brings tog
+          <h3>Organization</h3>
+          <div style="margin-bottom: 20px;">
+            <div style="font-size: 0.92rem; font-weight: 500; color: var(--ink); margin-bottom: 4px;">ComPer 2026</div>
+            <div style="font-size: 0.88rem; color: var(--ink-muted); line-height: 1.6;">Sixth Workshop on Computational Persistence<br>University of Florida, Gainesville, FL<br>December 7–11, 2026 <span style="font-family: var(--mono); font-size: 10px; padding: 2px 7px; background: var(--accent-light); color: var(--accent); border-radius: 2px; margin-left: 4px;">Provisional</span></div>
+          </div>
+          <div style="height: 1px; background: var(--rule); margin-bottom: 20px;"></div>
+          <div style="font-size: 0.92rem; font-weight: 500; color: var(--ink); margin-bottom: 4px;">TDA Seminar, Fall 2025</div>
+          <p style="font-size: 0.88rem;">Organized the <a href="https://tda.math.ufl.edu/fall-2025-tda-seminar/" style="color:var(--accent);" target="_blank">Topological Data Analysis Seminar</a> at UF, bringing together researchers at the intersection of topology, geometry, and data science.</p>
+        </div>
